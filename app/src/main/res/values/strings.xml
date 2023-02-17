@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">The Movie DB</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="the_movie_database_tmdb">The Movie Database (TMDB)</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="try_typing_something_to_get_started">Try typing something to get started</string>
+    <string name="oh_snap">Oh Snap…</string>
+    <string name="brace_yourself_till_we_get_the_error_fixed_nyou_may_also_refresh_the_page_or_try_again_later">Brace yourself till we get the error fixed\nYou may also refresh the page or try again later</string>
+    <string name="it_s_empty_in_here">It\'s empty in here…</string>
+    <string name="search_or_jump_to">Search or jump to ...</string>
+    <string name="search">Search</string>
+</resources>

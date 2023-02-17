@@ -1,0 +1,105 @@
+plugins {
+    id 'kotlin-kapt'
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.dagger.hilt.android'
+}
+def getPropertiesFile = { path ->
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(file(path)))
+    return properties
+}
+android {
+    namespace 'robi.themoviedb'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "robi.themoviedb"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            getPropertiesFile('./config/endpoint.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
+        }
+        release {
+            getPropertiesFile('./config/endpoint.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation AndroidX.core
+    implementation AndroidX.legacy
+    implementation AndroidX.appcompat
+    implementation AndroidX.fragmentKtx
+    implementation AndroidX.constraintLayout
+    implementation AndroidX.activity
+    implementation AndroidX.multidex
+    implementation AndroidX.lifecycleRuntime
+    implementation AndroidX.lifecycleLiveData
+    implementation AndroidX.lifecycleViewModel
+    implementation AndroidX.navigationFragment
+    implementation AndroidX.navigationUi
+    implementation AndroidX.room
+    implementation AndroidX.roomRuntime
+
+    implementation Google.gson
+    implementation Google.hiltAndroid
+    implementation Google.material
+
+    implementation Github.glide
+
+    implementation Squareup.retrofit2
+    implementation Squareup.retrofit2ConverterGson
+    implementation Squareup.okhttp3
+    implementation Squareup.okhttp3Bom
+    implementation Squareup.okhttp3LoggingInterceptor
+
+    implementation Jetbrains.CoroutinesCore
+    implementation Jetbrains.CoroutinesAndroid
+
+    implementation Facebook.shimmer
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    kapt AndroidX.roomCompiler
+    kapt Google.hiltCompiler
+    kapt Github.glideCompiler
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+kapt {
+    correctErrorTypes true
+}
+hilt {
+    enableAggregatingTask = true
+}
