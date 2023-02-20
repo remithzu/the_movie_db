@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter.actionListener = object : Adapter.OnActionListener{
             override fun onAction(result: Result) {
-                val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(result.id)
+                val direction = SearchFragmentDirections.actionSearchFragmentToDetailFragment(result.id)
                 findNavController().navigate(direction)
             }
         }
