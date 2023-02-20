@@ -1,5 +1,6 @@
 package robi.themoviedb.ui.search
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,11 +40,12 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter.actionListener = object : Adapter.OnActionListener{
             override fun onAction(result: Result) {
-                val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
+                val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(result.id)
                 findNavController().navigate(direction)
             }
         }
@@ -55,6 +57,7 @@ class SearchFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupViewModel() {
         viewModel.movieRepository.observe(viewLifecycleOwner) {
             when (it) {
@@ -63,6 +66,8 @@ class SearchFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 }
                 is NetworkState.Success -> {
+                    binding.layoutContent.visibility = View.VISIBLE
+                    binding.layoutEmpty.visibility = View.GONE
                     adapter.list = it.data?.results!!
                     adapter.notifyDataSetChanged()
                 }

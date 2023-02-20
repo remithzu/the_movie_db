@@ -55,6 +55,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="5dp"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_cover_overlay"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -73,7 +74,7 @@
 
 
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/tv_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -108,7 +109,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tv_play_trailer"
                     app:layout_constraintStart_toEndOf="@+id/tv_user_score"
-                    app:layout_constraintTop_toBottomOf="@+id/title" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
                 <TextView
                     android:id="@+id/tv_play_trailer"
@@ -152,17 +153,44 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_date_ratting"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/l_date_ratting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="TextView"
+                    android:gravity="center"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_release_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="TextView"
+                        android:background="@drawable/do_capsule"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="TextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <TextView
                     android:id="@+id/tv_genre"
@@ -174,7 +202,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_date_ratting" />
+                    app:layout_constraintTop_toBottomOf="@+id/l_date_ratting" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -186,16 +214,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
                 <TextView
-                    android:id="@+id/tv_subtitle"
+                    android:id="@+id/tv_tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="TextView" />
+                    android:textStyle="bold"
+                    android:text="Keyword" />
 
                 <TextView
-                    android:id="@+id/tv_overview"
+                    android:id="@+id/tv_tag_line"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -204,19 +233,49 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/tv_description"
+                    android:id="@+id/tv_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textStyle="bold"
+                    android:text="@string/overview" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda." />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_production_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_production" />
+
+                <TextView
+                    android:id="@+id/tv_actor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold"
+                    android:text="@string/top_cast" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_actor_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="10"
                     tools:listitem="@layout/item_actor" />
 
             </LinearLayout>

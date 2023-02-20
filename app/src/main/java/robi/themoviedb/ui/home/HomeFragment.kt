@@ -2,21 +2,14 @@ package robi.themoviedb.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
-import android.widget.AbsListView
-import android.widget.AbsListView.OnScrollListener
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import robi.themoviedb.data.model.Result
 import robi.themoviedb.databinding.FragmentHomeBinding
-import robi.themoviedb.databinding.ItemCardContentBinding
 import robi.themoviedb.network.NetworkState
 import robi.themoviedb.ui.adapter.Adapter
 import javax.inject.Inject
@@ -51,7 +44,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter.actionListener = object : Adapter.OnActionListener{
             override fun onAction(result: Result) {
-                val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
+                val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(result.id)
                 findNavController().navigate(direction)
             }
         }
@@ -70,22 +63,13 @@ class HomeFragment : Fragment() {
                 Log.e("movieLog", "onScrollChange:: ${binding.layoutContent.getChildAt(0).getHeight()};  $p1, $p2, $p3, $p4")
             }
         })*/
-        binding.layoutContent.viewTreeObserver.addOnScrollChangedListener {
-            ViewTreeObserver.OnScrollChangedListener {
-                if (binding.layoutContent.getChildAt(0).bottom
-                    <= (binding.layoutContent.height + binding.layoutContent.scrollY)) {
-                    Log.e("movieLog", "At Bottom")
-                } else {
-                    Log.e("movieLog", "not Bottom")
-                }
-            }
-        }
         binding.floatingActionButton.setOnClickListener {
             val direction = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
             findNavController().navigate(direction)
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupViewModel() {
         viewModel.movieRepository.observe(viewLifecycleOwner) {
             when (it) {

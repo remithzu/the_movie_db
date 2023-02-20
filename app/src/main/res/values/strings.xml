@@ -11,4 +11,6 @@
     <string name="it_s_empty_in_here">It\'s empty in here…</string>
     <string name="search_or_jump_to">Search or jump to ...</string>
     <string name="search">Search</string>
+    <string name="overview">Overview</string>
+    <string name="top_cast">Top Cast</string>
 </resources>
