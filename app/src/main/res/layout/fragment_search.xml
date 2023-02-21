@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -71,6 +72,10 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
+                <include
+                    android:id="@+id/item_loading"
+                    android:visibility="gone"
+                    layout="@layout/item_card_content"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
 

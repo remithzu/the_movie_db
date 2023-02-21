@@ -41,5 +41,6 @@ class HomeViewModel @Inject constructor(application: Application, private val re
     override fun onCleared() {
         super.onCleared()
         job?.cancel()
+
     }
 }

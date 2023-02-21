@@ -35,9 +35,6 @@ class DetailFragment : Fragment() {
     private lateinit var adapter2: Adapter2
     private var movieId = 0
     private var trailerUrl: String? = null
-    companion object {
-        fun newInstance() = DetailFragment()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +44,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -85,7 +82,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
     private fun setupViewModel() {
         viewModel.movieDetailRepository.observe(viewLifecycleOwner) {
             when (it) {
@@ -195,11 +192,6 @@ class DetailFragment : Fragment() {
     class ViewHolder2(val bindItem: ItemProductionBinding): RecyclerView.ViewHolder(bindItem.root)
     class Adapter2: RecyclerView.Adapter<ViewHolder2>() {
         var list = listOf<MovieDetailResponse.ProductionCompany?>()
-        var actionListener: OnActionListener? = null
-
-        interface OnActionListener {
-            fun onAction(result: Result)
-        }
 
         override fun onCreateViewHolder(
             parent: ViewGroup,

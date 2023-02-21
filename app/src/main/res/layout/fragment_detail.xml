@@ -34,7 +34,7 @@
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     android:contentDescription="@null"
-                    android:src="@drawable/sample"
+                    android:src="@drawable/ic_launcher_foreground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -65,13 +65,12 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:contentDescription="@null"
-                        android:src="@drawable/sample"
+                        android:src="@drawable/ic_launcher_foreground"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.cardview.widget.CardView>
-
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -80,7 +79,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="TextView"
+                    android:text="@string/lorem"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="75% User Score"
+                    android:text="@string/_75_user_score"
                     app:layout_constraintBottom_toBottomOf="@+id/view"
                     app:layout_constraintEnd_toStartOf="@+id/view"
                     app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +117,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:drawablePadding="8dp"
-                    android:text="Play Trailer"
+                    android:text="@string/play_trailer"
                     app:layout_constraintBottom_toBottomOf="@+id/view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/view"
@@ -172,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginEnd="4dp"
-                        android:text="TextView"
+                        android:text="@string/lorem"
                         android:background="@drawable/do_capsule"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
@@ -186,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginEnd="4dp"
-                        android:text="TextView"
+                        android:text="@string/lorem"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -198,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:text="TextView"
+                    android:text="@string/lorem"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -221,7 +220,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:textStyle="bold"
-                    android:text="Keyword" />
+                    android:text="@string/keyword" />
 
                 <TextView
                     android:id="@+id/tv_tag_line"
@@ -230,7 +229,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
-                    android:text="TextView" />
+                    android:text="@string/lorem" />
 
                 <TextView
                     android:id="@+id/tv_overview"
@@ -249,7 +248,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda." />
+                    android:text="@string/dummy_text" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_production_list"

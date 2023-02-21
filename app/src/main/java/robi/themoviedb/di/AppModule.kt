@@ -25,7 +25,7 @@ object AppModule {
     fun movieApi() : MovieApi {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-        var api: MovieApi? = null
+        val api: MovieApi?
         val client = OkHttpClient.Builder()
         client.addInterceptor(logging)
         val retrofit = Retrofit.Builder()
@@ -40,12 +40,4 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMovieRepository(api: MovieApi) = MovieRepository(api)
-
-    @Provides
-    @Singleton
-    fun provideHomeViewModel(application: Application, repository: MovieRepository) = HomeViewModel(application,repository)
-
-    @Provides
-    @Singleton
-    fun provideSearchViewModel(application: Application, repository: MovieRepository) = SearchViewModel(application,repository)
 }

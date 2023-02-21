@@ -1,14 +1,11 @@
 package robi.themoviedb.ui.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import robi.themoviedb.R
 import robi.themoviedb.data.model.Result
 import robi.themoviedb.databinding.ItemCardContentBinding
 
@@ -33,7 +30,6 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val m = list[position]
-        Log.e("movieLog", "$m")
         if (m==null) {
             holder.bindItem.cardItem.visibility = View.GONE
             holder.bindItem.cardShimmer.visibility = View.VISIBLE
