@@ -40,7 +40,7 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
             holder.bindItem.cardItem.visibility = View.VISIBLE
             Glide.with(holder.itemView.context)
                 .asDrawable()
-                .load("https://image.tmdb.org/t/p/w500${m.posterPath}")
+                .load("https://image.tmdb.org/t/p/w185${m.posterPath}")
                 .into(holder.bindItem.ivCover)
             holder.bindItem.tvTitle.text = m.title
             holder.bindItem.tvDescription.text = m.overview

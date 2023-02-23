@@ -94,11 +94,11 @@ class DetailFragment : Fragment() {
                         binding.apply {
                             Glide.with(requireContext())
                                 .asDrawable()
-                                .load("https://image.tmdb.org/t/p/w500${d.posterPath}")
+                                .load("https://image.tmdb.org/t/p/w185${d.posterPath}")
                                 .into(ivCover)
                             Glide.with(requireContext())
                                 .asDrawable()
-                                .load("https://image.tmdb.org/t/p/w500${d.backdropPath}")
+                                .load("https://image.tmdb.org/t/p/w300${d.backdropPath}")
                                 .into(ivCoverOverlay)
                             tvUserScore.text = "${d.voteAverage.toFormat()}/10"
                             tvTitle.text = d.title
@@ -181,7 +181,7 @@ class DetailFragment : Fragment() {
             val m = list[position]!!
             Glide.with(holder.itemView.context)
                 .asDrawable()
-                .load("https://image.tmdb.org/t/p/w500${m.profilePath}")
+                .load("https://image.tmdb.org/t/p/w45${m.profilePath}")
                 .placeholder(ContextCompat.getDrawable(holder.itemView.context, R.drawable.ic_box))
                 .into(holder.bindItem.ivCover)
             holder.bindItem.tvCharacter.text = m.character

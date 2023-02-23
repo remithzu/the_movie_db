@@ -74,11 +74,13 @@ class HomeFragment : Fragment() {
                     page += 1
                     loadingShow()
                     isLoading = false
-                    viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
-                        delay(2000)
-                        Log.e("movieLog", "page: $page")
-                        viewModel.getTrending(page)
-                    }
+                    try {
+                        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+                            delay(2000)
+                            Log.e("movieLog", "page: $page")
+                            viewModel.getTrending(page)
+                        }
+                    } catch (_: Exception) {}
                 }
             }
         }
